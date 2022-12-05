@@ -13,9 +13,9 @@ datasource db {
 model Heroes {
   id          String @id @default(cuid())
   name        String
-  description String
+  age         String
+  nationality String
   role        String
-  secondary   String
+  health      Int
   image       String
-  difficulty  Int
 }
