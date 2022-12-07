@@ -1,13 +1,16 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-
-import { trpc } from "../utils/trpc";
-
+import { useEffect, useState } from "react";
+import { ClassRegistry } from "superjson/dist/class-registry";
+import type { Hero } from "../utils/types";
 const Home: NextPage = () => {
-  //const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
+  
+  //const [currentHero, setCurrentHero] = useState<Hero>()
 
+  
   return (
+    
     <>
       <Head>
         <title>Overwatchdle</title>
@@ -15,9 +18,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center  bg-mainbg bg-cover bg-no-repeat">
-        <p className="text-xl justify-self-start">Overwatchdle</p>
+        
+        <p className="text-8xl justify-self-start my-11">Overwatchdle</p>
         <div className="flex flex-col gap-2 mt-4">
-          <button className="text-xs bg-[#218ffe] text-white p-1 rounded-sm">Game mode 1</button>
+         
+          <Link href={{pathname:"/agehol"}}><button className="text-4xl bg-[#218ffe] text-white p-6 rounded-sm">Game mode 1</button></Link>
           {/** 
           <button className="border-2 border-black text-sm">Game mode 2</button>
           <button className="border-2 border-black text-sm">Game mode 3</button>

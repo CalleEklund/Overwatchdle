@@ -1,16 +1,5 @@
-export interface Hero {
-    name: string,
-    age: string,
-    nationality: string,
-    role: string,
-    health: number,
-    image: string,
-}
+import type { Hero } from "../src/utils/types";
 
-export interface Ability {
-    name: string,
-    image: string,
-}
 
 export const heroesList: Hero[] = [
     {
