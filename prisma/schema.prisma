@@ -11,9 +11,9 @@ datasource db {
 }
 
 model Heroes {
-  id          String @id @default(cuid())
+  id          String @id
   name        String
-  age         String
+  age         Int
   nationality String
   role        String
   health      Int

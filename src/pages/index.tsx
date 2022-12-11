@@ -1,16 +1,30 @@
+import { Query } from "@tanstack/react-query";
 import { type NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ClassRegistry } from "superjson/dist/class-registry";
+import { trpc } from "../utils/trpc";
 import type { Hero } from "../utils/types";
 const Home: NextPage = () => {
-  
-  //const [currentHero, setCurrentHero] = useState<Hero>()
 
-  
+  //const [currentHero, setCurrentHero] = useState<Hero>()
+  const [heroes, setHeroes] = useState<Hero[]>()
+  const { isLoading, data } = trpc.heroes.getAll.useQuery()
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoading) {
+      const tmp = JSON.parse(JSON.stringify(data))
+      setHeroes(tmp)
+    }
+  }, [setHeroes, data, isLoading])
+
+  console.log(heroes)
+
   return (
-    
+
     <>
       <Head>
         <title>Overwatchdle</title>
@@ -18,11 +32,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center  bg-mainbg bg-cover bg-no-repeat">
-        
-        <p className="text-8xl justify-self-start my-11">Overwatchdle</p>
-        <div className="flex flex-col gap-2 mt-4">
-         
-          <Link href={{pathname:"/agehol"}}><button className="text-4xl bg-[#218ffe] text-white p-6 rounded-sm">Game mode 1</button></Link>
+
+        <p className="text-8xl justify-self-start mt-7">Overwatchdle</p>
+        <div className="my-12" />
+        <div className="flex flex-col gap-2 mt-2">
+
+          <button className="text-6xl bg-blue text-white p-4 rounded-lg" onClick={() => { router.push("/agehol") }}>Game mode 1</button>
           {/** 
           <button className="border-2 border-black text-sm">Game mode 2</button>
           <button className="border-2 border-black text-sm">Game mode 3</button>
