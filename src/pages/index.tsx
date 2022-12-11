@@ -1,7 +1,5 @@
-import { Query } from "@tanstack/react-query";
 import { type NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { trpc } from "../utils/trpc";
@@ -11,8 +9,6 @@ const Home: NextPage = () => {
   //const [currentHero, setCurrentHero] = useState<Hero>()
   const [heroes, setHeroes] = useState<Hero[]>()
   const { isLoading, data } = trpc.heroes.getAll.useQuery()
-
-  const router = useRouter();
 
   useEffect(() => {
     if (!isLoading) {
@@ -37,7 +33,7 @@ const Home: NextPage = () => {
         <div className="my-12" />
         <div className="flex flex-col gap-2 mt-2">
 
-          <button className="text-6xl bg-blue text-white p-4 rounded-lg" onClick={() => { router.push("/agehol") }}>Game mode 1</button>
+          <Link href="/agehol"><button className="text-6xl bg-blue text-white p-4 rounded-lg" >Higher or Lower</button></Link>
           {/** 
           <button className="border-2 border-black text-sm">Game mode 2</button>
           <button className="border-2 border-black text-sm">Game mode 3</button>
