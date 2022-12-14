@@ -1,12 +1,10 @@
 import { PrismaClient } from '@prisma/client'
-import type { Hero, Ability } from '../src/utils/types';
+import type { Hero } from '../src/utils/types';
 import { heroesList } from './seed-data'
 const prisma = new PrismaClient()
 
 
 //Add relation between Hero and ability
-
-
 async function main() {
     console.log('start seeding')
     heroesList.map(async (elem: Hero, index: number) => {

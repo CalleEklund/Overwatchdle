@@ -1,5 +1,4 @@
 import { getHeroesForVote } from "@/utils/getRandomHero";
-import { z } from "zod"
 
 import { router, publicProcedure } from "../trpc";
 
