@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -16,6 +17,11 @@ module.exports = {
         blue: "#218ffe",
         black: "#000000"
       },
+      fontFamily: {
+        "Jaldi": ["Jaldi", ...defaultTheme.fontFamily.sans],
+        "overw": ["ow", ...defaultTheme.fontFamily.sans]
+
+      }
     },
     keyframes: {
       "fade-in": {
