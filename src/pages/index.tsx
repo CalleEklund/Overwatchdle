@@ -43,8 +43,11 @@ const Home: NextPage = () => {
             <Link href="/"><button className="text-5xl text-whiterounded-lg font-Jaldi font-bold text-white [text-shadow:_2px_2px_2px_rgb(0_0_0_/_40%)] transition ease-in-out delay-150 hover:scale-110" >Not implemented</button></Link>
           </div>
         </section>
-        <footer className="h-20">
-          This is a footer
+        <footer className="h-20 flex justify-center items-center">
+          <div className="flex flex-row items-center">
+            <p className="mr-4 text-black">Github:</p>
+            <Link href="https://github.com/CalleEklund/Overwatchdle"><Image src="/GitHub-Logo.png" width={40} height={40} alt="Github logo" className="rounded-xl" /></Link>
+          </div>
         </footer>
       </main>
     </>
